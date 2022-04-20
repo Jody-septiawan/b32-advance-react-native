@@ -47,12 +47,24 @@ function MyTab() {
 
           return <Ionicons name={iconName} size={size} color={color} />;
         },
-        tabBarActiveTintColor: theme.colors.primary['800'],
+        tabBarActiveTintColor: theme.colors.primary['500'],
         tabBarInactiveTintColor: 'gray',
       })}
     >
-      <Tab.Screen name="Home" component={Hello} />
-      <Tab.Screen name="Form" component={FormNativeBase} />
+      <Tab.Screen
+        name="Home"
+        component={Hello}
+        options={{
+          headerShown: false,
+        }}
+      />
+      <Tab.Screen
+        name="Form"
+        component={FormNativeBase}
+        options={{
+          headerShown: false,
+        }}
+      />
     </Tab.Navigator>
   );
 }
@@ -64,8 +76,14 @@ export default function Container() {
   return (
     <NavigationContainer>
       <Stack.Navigator initialRouteName="Home">
-        {/* <Stack.Screen name="Main" component={MyTab} /> */}
-        <Stack.Screen name="Home" component={Hello} />
+        <Stack.Screen
+          name="Main"
+          component={MyTab}
+          options={{
+            headerShown: false,
+          }}
+        />
+        <Stack.Screen name="IncDec" component={IncDec} />
       </Stack.Navigator>
     </NavigationContainer>
   );
